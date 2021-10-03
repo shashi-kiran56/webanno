@@ -118,14 +118,13 @@ public abstract class ApplicationPageBase
 
         // Override locale to be used by application
         String locale = settings.getProperty(SettingsUtil.CFG_LOCALE, "en");
-        switch (locale) {
-        case "auto":
+        if(locale == auto) {
             // Do nothing - locale is picked up from browser
-            break;
-        default:
+          }
+          else {
             // Override the locale in the session
             getSession().setLocale(Locale.forLanguageTag(locale));
-            break;
+            
         }
 
         // Add menubar
